@@ -1,5 +1,4 @@
 <?php
-
 add_filter( 'manage_pages_columns', 'lc_columns_head');
 add_action( 'manage_pages_custom_column', 'lc_list_page_template', 10, 2);
 
@@ -50,7 +49,29 @@ function lc_list_page_template( $column_name, $post_id ){
 				break;
 				
 			case 'standard-subpage-no-leftnav.php';
-				case 'Standard Sub Page - No Left Navigation';
+				echo 'Standard Sub Page - No Left Navigation';
+				break;
+				
+			// Kiwi Templates
+				
+			case 'templates/template-audience.php';
+				echo 'Audience Focused Page';
+				break;
+				
+			case 'templates/template-full-width.php';
+				echo 'Full-Width Page (No Sidebar)';
+				break;
+				
+			case 'templates/template-overview.php';
+				echo 'Overview Page';
+				break;
+				
+			case 'templates/template-contact.php';
+				echo 'Contact Page';
+				break;
+			
+			case 'templates/template-home.php';
+				echo 'Home Page';
 				break;
 				
 			default:
@@ -60,6 +81,7 @@ function lc_list_page_template( $column_name, $post_id ){
 		
 	}
 }
+
 
 ?>
 
