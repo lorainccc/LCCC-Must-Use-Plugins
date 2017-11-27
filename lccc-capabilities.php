@@ -57,25 +57,7 @@
   add_action( 'init', 'lccc_editor_set_capabilities' );
 
  // Hide various menus and submenus from LCCC Editor Role
-
-  $role = get_role( 'lccc_editor' );
-  $role->add_cap( 'gravityforms_edit_forms' );
-  $role->add_cap( 'gravityforms_create_form' );
-  $role->add_cap( 'gravityforms_view_entries' );
-  $role->add_cap( 'gravityforms_edit_entries' );
-  $role->add_cap( 'gravityforms_delete_entries' );
-  $role->add_cap( 'gravityforms_export_entries' );
-  $role->add_cap( 'gravityforms_view_entry_notes' );
-  $role->add_cap( 'gravityforms_edit_entry_notes' );
-  $role->add_cap( 'gravityforms_view_addons' );
-  $role->add_cap( 'gravityforms_preview_forms' );
-  $role->add_cap( 'lccc_edit' );
-
-  $role = null;
-
-  $role = get_role( 'lccc_adv_editor' );
-  $role->add_cap( 'lccc_adv_edit' );
-
+ 
 function lccc_editor_hide_menu() {
  if(current_user_can('administrator') != true ){
   if(current_user_can('lccc_edit') == true ){
