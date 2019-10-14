@@ -56,8 +56,23 @@
   }
   add_action( 'init', 'lccc_editor_set_capabilities' );
 
+
+  function lc_add_cap(){
+			$role = get_role('lccc_editor');
+			$role->add_cap('wpseo_bulk_edit');
+			$role->add_cap('delete_others_posts');
+			$role->add_cap('delete_posts');
+			$role->add_cap('delete_private_posts');
+			$role->add_cap('delete_published_posts');
+			$role->add_cap('edit_others_posts');			
+			$role->add_cap('edit_posts');			
+			$role->add_cap('edit_private_posts');					
+		}
+
+		add_action( 'admin_init', 'lc_add_cap');
+
  // Hide various menus and submenus from LCCC Editor Role
- 
+
 function lccc_editor_hide_menu() {
  if(current_user_can('administrator') != true ){
   if(current_user_can('lccc_edit') == true ){
@@ -66,7 +81,8 @@ function lccc_editor_hide_menu() {
     remove_submenu_page( 'themes.php', 'widgets.php' );   // Widgets
     remove_menu_page( 'tools.php' );                      // Tools
     remove_menu_page( 'edit-comments.php' );              // Comments
-    remove_menu_page( 'edit.php' );                       // Posts
+	
+			
    global $submenu;
     // Appearance Menu
     unset($submenu['themes.php'][6]); // Customize
@@ -133,6 +149,20 @@ add_action('admin_head', 'lccc_editor_hide_menu' );
   }
   add_action( 'init', 'lccc_adv_editor_set_capabilities' );
 
+  function lc_adv_add_cap(){
+			$role = get_role('lccc_adv_editor');
+			$role->add_cap('wpseo_bulk_edit');
+			$role->add_cap('delete_others_posts');
+			$role->add_cap('delete_posts');
+			$role->add_cap('delete_private_posts');
+			$role->add_cap('delete_published_posts');
+			$role->add_cap('edit_others_posts');			
+			$role->add_cap('edit_posts');			
+			$role->add_cap('edit_private_posts');					
+		}
+
+		add_action( 'admin_init', 'lc_adv_add_cap');
+
  // Hide various menus and submenus from LCCC Editor Role
 
 function lccc_adv_editor_hide_menu() {
@@ -142,7 +172,7 @@ function lccc_adv_editor_hide_menu() {
     remove_submenu_page( 'themes.php', 'themes.php' );    // Themes
     remove_menu_page( 'tools.php' );                      // Tools
     remove_menu_page( 'edit-comments.php' );              // Comments
-    remove_menu_page( 'edit.php' );                       // Posts
+
    global $submenu;
     // Appearance Menu
     unset($submenu['themes.php'][6]); // Customize
